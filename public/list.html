@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Students</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>LIST OF STUDENTS</h1><hr>
+<a href="index.html">Home</a> |
+<a href="list.html">List Students</a> |
+<a href="listOne.html">List Required Student</a> |
+<a href="insert.html">Insert Student</a> |
+<a href="update.html">Update Student</a> |
+<a href="delete.html">Delete Student</a>
+<hr>
+<button onclick="loadStudents()">Refresh List</button>
+<table id="studentTable">
+    <thead><tr><th>Student ID</th><th>Name</th><th>Marks</th><th>Phone Number</th><th>Age</th></tr></thead>
+    <tbody></tbody>
+</table>
+<button onclick="location.href='index.html'">Home Page</button>
+<script>
+async function loadStudents() {
+    try {
+        const response = await fetch("/students");
+        if (!response.ok) throw new Error("Failed to fetch students");
+        const students = await response.json();
+        const tbody = document.querySelector("#studentTable tbody");
+        tbody.innerHTML = "";
+        if (students.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5">No students found</td></tr>';
+            return;
+        }
+        students.forEach(student => {
+            const row = document.createElement("tr");
+            [student.id, student.name, student.marks, student.phone, student.age].forEach(value => {
+                const cell = document.createElement("td");
+                cell.textContent = value ?? "";
+                row.appendChild(cell);
+            });
+            tbody.appendChild(row);
+        });
+    } catch (error) { console.error(error); alert(error.message); }
+}
+loadStudents();
+</script>
+</body>
+</html>

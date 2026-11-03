@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>DELETE STUDENT</h1><hr>
+<a href="index.html">Home</a> |
+<a href="list.html">List Students</a> |
+<a href="listOne.html">List Required Student</a> |
+<a href="insert.html">Insert Student</a> |
+<a href="update.html">Update Student</a> |
+<a href="delete.html">Delete Student</a>
+<hr>
+Student ID to Delete<br><input type="number" id="id" required><br>
+<button onclick="deleteStudent()">Delete</button><br>
+<button onclick="location.href='index.html'">Home Page</button>
+<script>
+async function deleteStudent() {
+    const id = document.getElementById("id").value;
+    if (!id) { alert("Please enter Student ID"); return; }
+    if (!confirm("Are you sure you want to delete this student?")) return;
+    try {
+        const response = await fetch("/students/" + encodeURIComponent(id), { method: "DELETE" });
+        const message = await response.text();
+        if (!response.ok) throw new Error(message);
+        alert(message); location.href = "list.html";
+    } catch (error) { alert(error.message || "Error deleting student"); }
+}
+</script>
+</body>
+</html>

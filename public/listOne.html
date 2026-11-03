@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>SEARCH STUDENT</h1><hr>
+<a href="index.html">Home</a> |
+<a href="list.html">List Students</a> |
+<a href="listOne.html">List Required Student</a> |
+<a href="insert.html">Insert Student</a> |
+<a href="update.html">Update Student</a> |
+<a href="delete.html">Delete Student</a>
+<hr>
+Student ID<br><input type="number" id="id" required>
+<button onclick="searchStudent()">Search</button>
+<table id="studentTable">
+<thead><tr><th>Student ID</th><th>Name</th><th>Marks</th><th>Phone Number</th><th>Age</th></tr></thead>
+<tbody></tbody>
+</table>
+<button onclick="location.href='index.html'">Home Page</button>
+<script>
+async function searchStudent() {
+    const id = document.getElementById("id").value;
+    if (!id) { alert("Please enter Student ID"); return; }
+    try {
+        const response = await fetch("/students/" + encodeURIComponent(id));
+        if (!response.ok) throw new Error(await response.text());
+        const data = await response.json();
+        const tbody = document.querySelector("#studentTable tbody");
+        tbody.innerHTML = "";
+        if (!data.length) { alert("Student Not Found"); return; }
+        const student = data[0];
+        const row = document.createElement("tr");
+        [student.id, student.name, student.marks, student.phone, student.age].forEach(value => {
+            const cell = document.createElement("td"); cell.textContent = value ?? ""; row.appendChild(cell);
+        });
+        tbody.appendChild(row);
+    } catch (error) { alert(error.message || "Error fetching student data"); }
+}
+</script>
+</body>
+</html>

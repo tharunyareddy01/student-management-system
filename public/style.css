@@ -1,0 +1,390 @@
+
+/* =========================================
+   PASTEL DREAM — STUDENT MANAGEMENT SYSTEM
+   Colors: Blush Pink, Mint, Lavender & Cream
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f4b8c5;
+    --pink-light: #fff0f3;
+    --lavender: #c9b6e4;
+    --lavender-light: #f2edfa;
+    --mint: #b8e3d0;
+    --mint-dark: #477c68;
+    --butter: #fff0bd;
+    --cream: #fffaf4;
+    --text: #51475c;
+    --text-light: #84798c;
+    --white: #ffffff;
+    --border: #eee5ef;
+    --shadow: 0 10px 30px rgba(105, 80, 120, 0.09);
+}
+
+/* PAGE */
+body {
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, #ffe4eb 0, transparent 28%),
+        radial-gradient(circle at 90% 20%, #e8e0fa 0, transparent 30%),
+        radial-gradient(circle at 70% 90%, #e0f5e9 0, transparent 30%),
+        var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 30px;
+    line-height: 1.7;
+}
+
+/* MAIN HEADINGS */
+h1 {
+    text-align: center;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: #765d8f;
+    margin: 15px 0 25px;
+    letter-spacing: -0.5px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 5px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--pink), var(--lavender), var(--mint));
+    margin: 10px auto 0;
+}
+
+h2 {
+    color: #765d8f;
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+h3 {
+    color: #80698e;
+    margin-bottom: 12px;
+}
+
+/* HORIZONTAL LINE */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d9c9e6, #f0c7d2, transparent);
+    margin: 20px 0;
+}
+
+/* NAVIGATION LINKS */
+body > a,
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #745b88;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 17px;
+    margin: 5px 3px;
+    border: 1px solid #eee3f2;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(120, 90, 140, 0.04);
+}
+
+body > a:hover,
+nav a:hover {
+    background: var(--lavender-light);
+    border-color: var(--lavender);
+    transform: translateY(-2px);
+    color: #63477b;
+}
+
+/* GENERAL LINKS */
+a {
+    color: #8b6ca8;
+    transition: 0.25s ease;
+}
+
+a:hover {
+    color: #d17d9b;
+}
+
+/* FORMS */
+form {
+    max-width: 520px;
+    margin: 25px auto;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(220, 204, 232, 0.7);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+/* FORM LABELS */
+label {
+    display: block;
+    margin: 15px 0 7px;
+    color: #6f5c7c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* INPUT FIELDS */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+input[type="search"],
+select,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin: 5px 0 12px;
+    border: 1.5px solid #e9dfee;
+    border-radius: 12px;
+    background: #fffafd;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #bba3d8;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(201, 182, 228, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #b4a9bb;
+}
+
+/* BUTTONS */
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+    display: inline-block;
+    padding: 12px 23px;
+    margin: 10px 5px 5px 0;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #cbb7e6, #e6c6e8);
+    color: #59456d;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(164, 133, 190, 0.18);
+    transition: all 0.25s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(164, 133, 190, 0.28);
+    background: linear-gradient(135deg, #bda4df, #dab4e2);
+}
+
+input[type="reset"] {
+    background: linear-gradient(135deg, #f7c9d2, #ffe0cf);
+    color: #815466;
+}
+
+input[type="reset"]:hover {
+    background: linear-gradient(135deg, #f2b4c3, #fbd2bb);
+}
+
+/* TABLES */
+table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 25px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #eee3f1;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+thead,
+tr:first-child {
+    background: #eee7f8;
+}
+
+th {
+    padding: 16px 18px;
+    text-align: left;
+    color: #705781;
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 2px solid #e3d5ef;
+}
+
+td {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 14px;
+    color: #62566b;
+    border-bottom: 1px solid #f2edf4;
+}
+
+tbody tr:nth-child(even) {
+    background: #fff8fb;
+}
+
+tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f0f8f3;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* TABLE ACTION LINKS */
+td a {
+    display: inline-block;
+    padding: 5px 11px;
+    margin: 2px;
+    border-radius: 8px;
+    background: #f2edfa;
+    color: #765d8f;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+td a:hover {
+    background: #e2d5f2;
+}
+
+/* PARAGRAPHS */
+p {
+    margin: 12px 0;
+    color: #786c80;
+}
+
+/* LISTS */
+ul,
+ol {
+    margin: 15px 0 15px 30px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* FOCUS ACCESSIBILITY */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #c9b6e4;
+    outline-offset: 3px;
+}
+
+/* SELECTION COLOR */
+::selection {
+    background: #e5d7f4;
+    color: #51405f;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff6fa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d7c4e8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bba3d8;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    form {
+        padding: 22px 18px;
+        border-radius: 17px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 12px;
+    }
+
+    body > a,
+    nav a {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    button,
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"] {
+        padding: 11px 17px;
+    }
+}
+
+/* SMALL MOBILE SCREENS */
+@media (max-width: 400px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        padding: 17px 13px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+}
+
